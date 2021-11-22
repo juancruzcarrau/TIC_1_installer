@@ -64,10 +64,10 @@ public class InstaladorController {
             session.createNativeQuery(query + ";").executeUpdate();
         }
         txn.commit();
-        textoPrincipal.setText("La Base de Datos ha sido instalada");
+        textoPrincipal.setText("La Base de Datos ha sido creada");
         userInput.setVisible(false);
         passwordInput.setVisible(false);
         login.setDisable(true);
-        login.setText("Instalada");
+        login.setText("Creada");
     }
 }

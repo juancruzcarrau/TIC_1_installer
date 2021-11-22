@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS tic1_db;
+
 CREATE DATABASE `tic1_db`;
 
 USE `tic1_db`;
@@ -74,7 +76,7 @@ INSERT INTO `tic1_db`.`countries` (`id`, `country_name`) VALUES
                                                              (52,'Congo, Democratic Republic of the Congo'),
                                                              (53,'Cook Islands'),
                                                              (54,'Costa Rica'),
-                                                             (55,'Cote D\'Ivoire'),
+                                                             (55,'Cote DIvoire'),
                                                              (56,'Croatia'),
                                                              (57,'Cuba'),
                                                              (58,'Curacao'),
@@ -474,6 +476,8 @@ CREATE TABLE `bookings` (
                             CONSTRAINT `fk_bookings_tourist` FOREIGN KEY (`tourist`) REFERENCES `tourists`(`id`),
                             CONSTRAINT `fk_bookings_experience` FOREIGN KEY (`experience`) REFERENCES `experiences`(`id`)
 );
+
+DROP USER IF EXISTS 'springuser'@'%';
 
 CREATE USER 'springuser'@'%' identified by 'ThePassword';
 
