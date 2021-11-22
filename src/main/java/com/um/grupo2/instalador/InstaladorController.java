@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.springframework.data.jpa.repository.Modifying;
@@ -20,6 +21,10 @@ import java.util.Scanner;
 
 @Controller
 public class InstaladorController {
+
+
+    @FXML
+    private Text textoPrincipal;
 
     @FXML
     private TextField userInput;
@@ -51,25 +56,18 @@ public class InstaladorController {
         SessionFactory sessionFactory = cfg.buildSessionFactory();
         Session session = sessionFactory.openSession();
 
-        String queryString = new Scanner(InstaladorController.class.getResourceAsStream("creacionDeBaseDeDatos.sql"), "UTF-8").useDelimiter("\\A").next();
+        String queryString = new Scanner(InstaladorController.class.getResourceAsStream("tic1_db.sql"), "UTF-8").useDelimiter("\\A").next();
 
         Transaction txn = session.beginTransaction();
-        EntityManager entityManager = session.getEntityManagerFactory().createEntityManager();
-        extracted(queryString, entityManager);
+        String[] queries = queryString.split(";");
+        for (String query:queries){
+            session.createNativeQuery(query + ";").executeUpdate();
+        }
         txn.commit();
-
-
-//        session.createSQLQuery(queryString);
-//        session.
+        textoPrincipal.setText("La Base de Datos ha sido instalada");
+        userInput.setVisible(false);
+        passwordInput.setVisible(false);
+        login.setDisable(true);
+        login.setText("Instalada");
     }
-
-    @Transactional
-    @Modifying
-    void extracted(String queryString, EntityManager entityManager) {
-        Query q = entityManager.createNativeQuery("BEGIN " + queryString + " END;");
-        entityManager.joinTransaction();
-        q.executeUpdate();
-    }
-
-
 }

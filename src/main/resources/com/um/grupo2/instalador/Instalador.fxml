@@ -8,18 +8,18 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="246.0" prefWidth="351.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.um.grupo2.instalador.InstaladorController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="246.0" prefWidth="351.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.um.grupo2.instalador.InstaladorController">
     <center>
         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="246.0" prefWidth="351.0" BorderPane.alignment="CENTER">
             <children>
                 <TextField fx:id="userInput" layoutX="56.0" layoutY="103.0" prefHeight="26.0" prefWidth="240.0" promptText="Usuario" />
                 <PasswordField fx:id="passwordInput" layoutX="57.0" layoutY="146.0" prefHeight="26.0" prefWidth="238.0" promptText="Contraseña" />
-                <Button fx:id="login" defaultButton="true" layoutX="112.0" layoutY="199.0" mnemonicParsing="false" onAction="#loginAction" prefHeight="29.0" prefWidth="127.0" text="Login">
+                <Button fx:id="login" defaultButton="true" layoutX="112.0" layoutY="199.0" mnemonicParsing="false" onAction="#loginAction" prefHeight="29.0" prefWidth="127.0" text="Instalar">
                     <cursor>
                         <Cursor fx:constant="DEFAULT" />
                     </cursor>
                 </Button>
-            <Text layoutX="37.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Introduzca su usuario y contraseña de Base de Datos para comenzar con la instalación:" textAlignment="CENTER" wrappingWidth="278.352783203125" />
+            <Text fx:id="textoPrincipal" layoutX="37.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Introduzca su usuario y contraseña de Base de Datos para comenzar con la instalación:" textAlignment="CENTER" wrappingWidth="278.352783203125" />
             </children>
         </AnchorPane>
     </center>
