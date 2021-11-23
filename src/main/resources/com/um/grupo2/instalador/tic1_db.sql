@@ -279,7 +279,7 @@ CREATE TABLE `tourists` (
                             `id` int NOT NULL,
                             `date_of_birth` datetime DEFAULT NULL,
                             `cellphone` varchar(45) DEFAULT NULL,
-                            `document_type` enum('DNI','RG','Cedula','Pasaporte') DEFAULT NULL,
+                            `document_type` varchar(45) DEFAULT NULL,
                             `document_number` varchar(45) DEFAULT NULL,
                             `country_of_birth` int DEFAULT NULL,
                             PRIMARY KEY (`id`),
